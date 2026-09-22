@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liviu Tanase</title>
+<meta name="description" content="Liviu Tanase — Founder and CEO of ZeroBounce. Email validation and deliverability, from Santa Barbara, California.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>▲</text></svg>">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --surface: #131316;
+    --border: #232328;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --faint: #63636b;
+    --accent: #e8e8ea;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  ::selection { background: #fff; color: #000; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(10,10,11,.72);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  .brand { font-weight: 700; letter-spacing: .04em; font-size: 15px; text-decoration: none; color: var(--text); }
+  .brand span { color: var(--faint); font-weight: 400; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* Hero */
+  header { padding: 168px 0 96px; }
+  .eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 24px;
+  }
+  h1 { font-size: clamp(44px, 8vw, 76px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+  h1 .dim { color: var(--faint); }
+  .lede { margin-top: 28px; font-size: 19px; color: var(--muted); max-width: 560px; line-height: 1.7; }
+  .lede strong { color: var(--text); font-weight: 600; }
+  .cta-row { margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: transform .15s, opacity .2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--text); color: #000; }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); background: transparent; }
+  .btn-ghost:hover { border-color: var(--faint); }
+
+  /* Sections */
+  section { padding: 72px 0; border-top: 1px solid var(--border); }
+  .kicker { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); margin-bottom: 20px; }
+  h2 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+  p.body { color: var(--muted); font-size: 17px; max-width: 620px; }
+  p.body + p.body { margin-top: 16px; }
+  p.body a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--faint); }
+  p.body a:hover { text-decoration-color: var(--text); }
+
+  /* Cards */
+  .cards { display: grid; gap: 16px; margin-top: 32px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; transition: border-color .2s, transform .15s;
+  }
+  .card:hover { border-color: #3a3a42; transform: translateY(-2px); }
+  .card h3 { font-size: 19px; font-weight: 650; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .card p { color: var(--muted); font-size: 15px; }
+  .card .meta { margin-top: 14px; font-size: 13px; color: var(--faint); letter-spacing: .06em; text-transform: uppercase; }
+
+  /* Facts */
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 32px; }
+  .fact { border-left: 2px solid var(--border); padding-left: 16px; }
+  .fact .num { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .fact .lbl { font-size: 13px; color: var(--faint); margin-top: 4px; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); padding: 48px 0 64px; margin-top: 24px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer p { color: var(--faint); font-size: 14px; }
+  .social { display: flex; gap: 20px; }
+  .social a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  .social a:hover { color: var(--text); }
+
+  @media (max-width: 560px) {
+    header { padding: 128px 0 72px; }
+    .nav-links { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">tanase<span>.ai</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Santa Barbara, California</div>
+    <h1>Liviu Tanase<span class="dim">.</span></h1>
+    <p class="lede">Founder and CEO of <strong>ZeroBounce</strong> — email validation and deliverability trusted by 650,000+ customers in 200+ countries. Serial entrepreneur, originally from Romania.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:ai@tanase.ai">Get in touch</a>
+      <a class="btn btn-ghost" href="https://www.zerobounce.net" target="_blank" rel="noopener">ZeroBounce</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="kicker">About</div>
+    <h2>Building the infrastructure behind the inbox.</h2>
+    <p class="body">I started my first business at 18, selling computers in Romania, and went on to build and exit several companies in telecom and tech before moving to the United States in 2014.</p>
+    <p class="body">Today I lead <a href="https://www.zerobounce.net" target="_blank" rel="noopener">ZeroBounce</a>, where we help the world's best-known brands land in the inbox — with 99.6% accuracy-guaranteed email validation, deliverability tooling, and AI-driven mailbox intelligence. Harvard Business School alumnus and YPO member.</p>
+    <div class="facts">
+      <div class="fact"><div class="num">650K+</div><div class="lbl">Customers worldwide</div></div>
+      <div class="fact"><div class="num">60B+</div><div class="lbl">Emails validated</div></div>
+      <div class="fact"><div class="num">200+</div><div class="lbl">Countries served</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="kicker">Work</div>
+    <h2>What I'm building.</h2>
+    <div class="cards">
+      <div class="card">
+        <h3><a href="https://www.zerobounce.net" target="_blank" rel="noopener">ZeroBounce</a></h3>
+        <p>Email validation, deliverability, warmup, and inbox placement testing — the email infrastructure layer used by Amazon, Netflix, Disney, Samsung, and hundreds of thousands more.</p>
+        <div class="meta">Founder &amp; CEO</div>
+      </div>
+      <div class="card">
+        <h3>Projects</h3>
+        <p>Experiments in AI, developer tooling, and high-performance web infrastructure — shipping soon on this domain.</p>
+        <div class="meta">Coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="kicker">Contact</div>
+    <h2>Say hello.</h2>
+    <p class="body">The fastest way to reach me is email: <a href="mailto:ai@tanase.ai">ai@tanase.ai</a>. I read everything.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:ai@tanase.ai">ai@tanase.ai</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Liviu Tanase · tanase.ai</p>
+    <div class="social">
+      <a href="https://www.zerobounce.net" target="_blank" rel="noopener">ZeroBounce</a>
+      <a href="https://github.com/tanaseai" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:ai@tanase.ai">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
